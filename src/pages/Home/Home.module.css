@@ -1,0 +1,46 @@
+.hero{
+    display: flex;
+    min-height: calc(100vh - 20px);
+}
+
+.hero .title{
+    width: 35%;
+    font-size: 40px;
+}
+
+.hero .title span{
+    color: #9A031E;
+}
+
+.shape{
+    background-color: #7BC950;
+    width: 50%;
+    height: 90%;
+    position: absolute;
+    border-radius: 40% 30% 0% 20%;
+    right: 0;
+    z-index: 1;
+}
+
+.banner{
+    display: flex;
+    align-items: start;
+    justify-content: end;
+    width: 70%;
+    z-index: 2;
+}
+
+.banner img{
+    height: 100%;
+    width: fit-content;
+}
+
+@media screen and (max-width: 1170px){
+    .shape{
+        display: none
+    }
+
+    .banner{
+        display: none;
+    }
+}

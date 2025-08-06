@@ -1,0 +1,18 @@
+header{
+    width: 100%;
+    padding: 20px;
+    
+}
+
+nav{
+    width: 100%;
+    display: flex;
+}
+
+.buttons{
+    display: flex;
+    flex: 1;
+    justify-content: right;
+    gap: 16px;
+}
+

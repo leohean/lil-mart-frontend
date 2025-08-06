@@ -1,0 +1,15 @@
+footer{
+    background-color: #7BC950;
+}
+
+.footerContent{
+    display: flex;
+    padding: 0px 2% 16px 2%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.copyright{
+    color: #1d1d1d;
+    font-size: 20px;
+}
