@@ -1,4 +1,4 @@
-.registerUser{
+.login{
     height: calc(80vh - 20px);
     display: flex;
     justify-content: center;

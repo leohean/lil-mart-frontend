@@ -32,9 +32,9 @@ export default function RegisterUser(){
     }
 
     return(
-        <div className={styles.registerUserForm}>
+        <section className={styles.registerUser}>
             <Form >
-                <Logo title=""/>
+                <Logo title="Criar Conta"/>
                 <Input label="Nome" type="text" placeholder="Digite o nome" value={name} updateValue={setName}/>
                 <Input label="Email" type="email" placeholder="Digite o email" value={email} updateValue={setEmail}/>
                 <Input label="Senha" type="password" placeholder="Digite a sua senha" value={password} updateValue={setPassword}/>
@@ -42,7 +42,7 @@ export default function RegisterUser(){
                 <Input label="CPF" type="text" placeholder="Digite o CPF" value={cpf} updateValue={setCpf}/>
                 <Button name="Cadastrar" event={submit}/>
             </Form>
-        </div>
+        </section>
     );
 }
 
