@@ -1,9 +1,8 @@
-export interface UserData{
+export interface Market{
     id?: number,
     name: string,
     email: string,
     password: string,
-    birth: string | Date,
-    cpf: string,
+    cnpj: string,
     role: string
 }
