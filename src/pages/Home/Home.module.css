@@ -1,24 +1,24 @@
-.hero{
+.home{
     display: flex;
-    min-height: calc(100vh - 20px);
+    min-height: calc(80vh - 20px);
 }
 
-.hero .title{
+.title{
     width: 35%;
     font-size: 40px;
 }
 
-.hero .title span{
-    color: #9A031E;
+.subtitle{
+    font-size: 32px;
 }
 
 .shape{
     background-color: #7BC950;
-    width: 50%;
-    height: 90%;
+    width: 36%;
+    height: 70%;
     position: absolute;
-    border-radius: 40% 30% 0% 20%;
-    right: 0;
+    border-radius: 35% 30% 0% 20%;
+    right: 172px;
     z-index: 1;
 }
 
@@ -26,13 +26,18 @@
     display: flex;
     align-items: start;
     justify-content: end;
-    width: 70%;
+    width: 60%;
     z-index: 2;
 }
 
 .banner img{
     height: 100%;
     width: fit-content;
+}
+
+.featuredProducts{
+    display: flex;
+    justify-content: center;
 }
 
 @media screen and (max-width: 1170px){

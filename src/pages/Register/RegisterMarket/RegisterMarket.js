@@ -1,11 +1,11 @@
 import {useState} from 'react';
-import {useRegisterMarketMutate} from './../../features/auth/hooks/useRegisterMarketMutate.ts'
+import {useRegisterMarketMutate} from './../../../features/auth/hooks/useRegisterMarketMutate.ts'
 
 import styles from './RegisterMarket.module.css'
-import Logo from './../../components/Logo/Logo.js';
-import Form from './../../components/Form/Form.js'
-import Input from './../../components/Input/Input.js'
-import ButtonPrimary from './../../components/Button/ButtonPrimary/ButtonPrimary.js'
+import Logo from './../../../components/Logo/Logo.js';
+import Form from './../../../components/Form/Form.js'
+import Input from './../../../components/Input/Input.js'
+import ButtonPrimary from './../../../components/Button/ButtonPrimary/ButtonPrimary.js'
 
 export default function RegisterMarket(){
     const [name, setName] = useState("");

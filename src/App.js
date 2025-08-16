@@ -6,7 +6,10 @@ import Nav from './components/Nav/Nav.js';
 import Home from './pages/Home/Home.js';
 import Login from './pages/Login/Login.js';
 import Search from './pages/Search/Search.js';
-import RegisterUser from './pages/Register/RegisterUser.tsx';
+import Register from './pages/Register/Register.js';
+import RegisterUser from './pages/Register/RegisterUser/RegisterUser.js';
+import RegisterMarket from './pages/Register/RegisterMarket/RegisterMarket.js';
+import MarketHome from './pages/MarketHome/MarketHome.js';
 
 function App() {
   return (
@@ -17,8 +20,11 @@ function App() {
         <Routes>
           <Route path="/" element={<Home/>} />
           <Route path="/login" element={<Login/>} />
-          <Route path="/Search" element={<Search/>} />
-          <Route path="/RegisterUser" element={<RegisterUser/>} />
+          <Route path="/search" element={<Search/>} />
+          <Route path="/register" element={<Register/>}/>
+          <Route path="/register/registeruser" element={<RegisterUser/>} />
+          <Route path="/register/registermarket" element={<RegisterMarket/>}/>
+          <Route path="/rarketHome" element={<MarketHome/>} />
         </Routes>
       </main>
 
