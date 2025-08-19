@@ -1,17 +1,21 @@
-import {useState} from 'react'
-import Card from './../../components/Card/Card.js'
-import {useProductData} from './../../hooks/useProductData.ts'
+import { useLocation } from 'react-router-dom';
+import {useSearchProductData} from './../../features/product/hooks/useSearchProductData.ts';
+import Card from './../../components/Card/Card.js';
 
 export default function Search(){
-    const {data}= useProductData();
+    const location = useLocation();
+    const searchParameter = location.state?.searchParameter ?? "";
+    const {data}= useSearchProductData(searchParameter);
+
     return(
-        <div>
+        <section>
             <div className="card-grid">
                 {data?.map(foodData => 
                 <Card 
                     name={foodData.name} 
+                    image={foodData.imageUrl}
                 />)}
             </div>
-        </div>
+        </section>
     );
 }

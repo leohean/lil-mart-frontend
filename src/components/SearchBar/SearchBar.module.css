@@ -1,0 +1,19 @@
+.searchBar input{
+    border: 1px solid #c6c5c5c5;
+    border-radius: 48px;
+    width: 400px;
+    font-size: 20px;
+    padding: 4px;
+}
+
+.searchBar input:focus{
+    border: none;
+    outline: 2px solid #7BC950;
+}
+
+.searchBar{
+    display: flex;
+    flex:1;
+    justify-content: center;
+}
+

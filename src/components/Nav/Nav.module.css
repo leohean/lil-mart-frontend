@@ -1,7 +1,6 @@
 header{
     width: 100%;
     padding: 20px;
-    
 }
 
 nav{
@@ -9,10 +8,62 @@ nav{
     display: flex;
 }
 
-.buttons{
+.logo{
+    display: flex;
+    align-items: center;
+}
+
+.logoIcon{
+    color: #9A031E;
+}
+
+.searchBar{
     display: flex;
     flex: 1;
-    justify-content: right;
+    justify-content: center;
+}
+
+.buttons{
+    display: flex;
     gap: 16px;
+}
+
+.mobileButton{
+    display: none;
+}
+
+.mobileMenu{
+    display: none;
+}
+
+@media screen and (max-width: 1170px){
+    .logo h1{
+        display: none;
+    }
+    
+    .buttons{
+        display: none;
+    }
+
+    .mobileButton{
+        display: flex;
+        border: none;
+        background-color: transparent;
+        justify-content: right;
+    }
+
+    .mobileMenu{
+        display: block;
+        width: 100%;
+        background-color: #efefef;
+    }
+
+    .mobileMenu li{
+        display: flex;
+        flex: 1;
+        justify-content: center;
+        list-style: none;
+        padding: 16px;
+    }
 }
 

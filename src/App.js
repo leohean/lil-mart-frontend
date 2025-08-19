@@ -24,7 +24,7 @@ function App() {
           <Route path="/register" element={<Register/>}/>
           <Route path="/register/registeruser" element={<RegisterUser/>} />
           <Route path="/register/registermarket" element={<RegisterMarket/>}/>
-          <Route path="/rarketHome" element={<MarketHome/>} />
+          <Route path="/marketHome" element={<MarketHome/>} />
         </Routes>
       </main>
 
