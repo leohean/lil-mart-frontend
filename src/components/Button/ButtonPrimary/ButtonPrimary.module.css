@@ -1,9 +1,11 @@
-.button{
+.buttonPrimary{
     border: none;
+    outline: 1px #c6c5c5c5 solid;
     display: flex;
     align-items: center;
     justify-content: center;
     background-color: #7BC950;
+
     border-radius: 12px;
     padding: 10px 14px;
     font-weight: 600;

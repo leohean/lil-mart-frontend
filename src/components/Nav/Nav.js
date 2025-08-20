@@ -1,5 +1,6 @@
 import styles from './Nav.module.css'
-import { useState } from 'react';
+
+import { useState, useEffect} from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
@@ -15,8 +16,19 @@ import SearchBar from './../SearchBar/SearchBar.js'
 export default function Nav(){
     const navigate = useNavigate();
 
-    const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const [isLogged, setIsLogged] = useState(false);
+    const handleLogout = () => {
+        localStorage.removeItem("token");
+        setIsLogged(false);
+        navigate('/');
+    };
 
+    useEffect(() => {
+        const token = localStorage.getItem("token");
+        setIsLogged(!!token);
+    });
+
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
     const handleIsMenuOpen = () => {
         setIsMenuOpen(!isMenuOpen);
     };
@@ -34,12 +46,18 @@ export default function Nav(){
 
                 <div className={styles.searchBar}>
                     <SearchBar label="" type="text" placeholder=" Buscar por..."/>
-                </div>        
+                </div>   
+                     
                 
                 <div className={styles.buttons}>
-                    
-                    <ButtonSecondary name="Entrar" event={() => navigate('/login')}/>
-                    <ButtonPrimary name="Criar conta" event={() => navigate('/register')}/>
+                    {isLogged ? (
+                        <ButtonSecondary name="Sair" event={handleLogout} />
+                        ) : (
+                        <>
+                            <ButtonSecondary name="Entrar" event={() => navigate('/login')} />
+                            <ButtonPrimary name="Criar conta" event={() => navigate('/register')} />
+                        </>
+                    )}
                 </div>
 
                 <button className={styles.mobileButton} onClick={handleIsMenuOpen}>
@@ -51,10 +69,19 @@ export default function Nav(){
         {isMenuOpen &&
             <div className={styles.mobileMenu}>
                 <ul>
-                    <li><ButtonSecondary name="Entrar" event={() => navigate('/login')}/></li>
+                    {isLogged ? (
                     <li>
-                        <ButtonSecondary name="Criar conta" event={() => navigate('/register')}/>
+                        <ButtonSecondary name="Sair" event={handleLogout} />
                     </li>
+                    ) : (<>
+                        <li>
+                            <ButtonSecondary name="Entrar" event={() => navigate('/login')}/>
+                        </li>
+                        <li>
+                            <ButtonSecondary name="Criar conta" event={() => navigate('/register')}/>
+                        </li>
+                    </>
+                    )}
                 </ul>
             </div>
         }

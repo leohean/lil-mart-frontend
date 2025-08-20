@@ -1,35 +1,27 @@
 import styles from './Login.module.css';
 
-import {useState, useEffect} from 'react';
-import { useNavigate } from 'react-router-dom';
+import {useState} from 'react';
 import {useLoginMutate} from './../../features/auth/hooks/useLoginMutate.ts';
 
 import Logo from './../../components/Logo/Logo.js';
 import Form from './../../components/Form/Form.js';
-import Input from './../../components/Input/Input.js';
+import Input from './../../components/Fields/Input/Input.js';
 import ButtonPrimary from './../../components/Button/ButtonPrimary/ButtonPrimary.js';
 
 
 export default function Login(){
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [error, setError] = useState("");
 
-    const {mutateAsync} = useLoginMutate(); 
-    const navigate = useNavigate();
-    const submit = async(e) =>{
+    const {mutate} = useLoginMutate(); 
+    const submit = (e) =>{
         e.preventDefault();
-        const loginRequest={
-            email,
-            password
+        setError("");
+        if(email.trim()==='' && password.trim()===''){
+            setError("É necessário informar o email e a senha");
         }
-        try{
-            const { role  } = await mutateAsync(loginRequest);
-            
-            if(role === "ROLE_USER") navigate("/");
-            else if(role === "ROLE_MARKET") navigate("/MarketHome");
-        }catch(error){
-            console.log("Error when trying to login: " + error);
-        }
+        mutate({email, password});
     };
 
     return(
@@ -38,6 +30,7 @@ export default function Login(){
                 <Logo title="Login"/>
                 <Input label="Email" type="email" placeholder="Digite o email" value={email} updateValue={setEmail}/>
                 <Input label="Senha" type="password" placeholder="Digite a sua senha" value={password} updateValue={setPassword}/>
+                <span>{error}</span>
                 <ButtonPrimary name="Entrar" event={submit}/>
             </Form>
         </section>

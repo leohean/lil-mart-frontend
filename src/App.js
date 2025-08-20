@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 
 import Nav from './components/Nav/Nav.js';
 
+import PrivateRoute from './components/PrivateRoute/PrivateRoute.js';
 import Home from './pages/Home/Home.js';
 import Login from './pages/Login/Login.js';
 import Search from './pages/Search/Search.js';
@@ -18,13 +19,44 @@ function App() {
       <Nav/>
       <main>
         <Routes>
-          <Route path="/" element={<Home/>} />
-          <Route path="/login" element={<Login/>} />
-          <Route path="/search" element={<Search/>} />
-          <Route path="/register" element={<Register/>}/>
-          <Route path="/register/registeruser" element={<RegisterUser/>} />
-          <Route path="/register/registermarket" element={<RegisterMarket/>}/>
-          <Route path="/marketHome" element={<MarketHome/>} />
+          <Route 
+          path="/" 
+          element={<Home/>} 
+          />
+
+          <Route 
+          path="/login" 
+          element={<Login/>} 
+          />
+
+          <Route 
+          path="/search" 
+          element={<Search/>} 
+          />
+          
+          <Route 
+          path="/register" 
+          element={<Register/>}
+          />
+
+          <Route 
+          path="/register/registeruser" 
+          element={<RegisterUser/>} 
+          />
+
+          <Route 
+          path="/register/registermarket" 
+          element={<RegisterMarket/>}
+          />
+
+          <Route 
+          path="/marketHome" 
+          element={
+            <PrivateRoute>
+              <MarketHome/>
+            </PrivateRoute>} 
+          />
+          
         </Routes>
       </main>
 

@@ -17,3 +17,15 @@
     justify-content: center;
 }
 
+@media screen and (max-width: 1170px){
+    .searchBar input{
+        width: 320px;
+    }
+}
+
+@media screen and (max-width: 600px){
+    .searchBar input{
+        width: 240px;
+    }
+}
+

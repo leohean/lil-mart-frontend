@@ -3,8 +3,6 @@ import styles from './Logo.module.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAppleWhole } from '@fortawesome/free-solid-svg-icons';
 
-import { Link } from 'react-router-dom';
-
 export default function Logo({title}){
     return(
             <div className={styles.logo}>
