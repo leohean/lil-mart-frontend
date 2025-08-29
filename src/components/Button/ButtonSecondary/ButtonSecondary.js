@@ -1,9 +1,11 @@
 import styles from "./ButtonSecondary.module.css"
 
-export default function ButtonSecondary({name, event}){
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
+export default function ButtonSecondary({icon, name, event}){
     return(
         <button className={styles.buttonSecondary} onClick={event}>
-            {name}
+            <FontAwesomeIcon icon={icon}/> {name}
         </button>
     );
 }

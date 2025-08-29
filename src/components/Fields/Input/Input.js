@@ -3,7 +3,7 @@ import styles from './Input.module.css'
 export default function Input({label, type, placeholder, value, updateValue}){
 
   return (
-    <>
+    <div className={styles.inputField}>
       <label>{label}</label>
       <input
         type={type}
@@ -18,6 +18,6 @@ export default function Input({label, type, placeholder, value, updateValue}){
         }}
         required
       />
-    </>
+    </div>
   );
 }

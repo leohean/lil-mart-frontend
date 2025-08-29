@@ -7,6 +7,7 @@ import PrivateRoute from './components/PrivateRoute/PrivateRoute.js';
 import Home from './pages/Home/Home.js';
 import Login from './pages/Login/Login.js';
 import Search from './pages/Search/Search.js';
+import ProductPage from './pages/ProductPage/ProductPage.js'
 import Register from './pages/Register/Register.js';
 import RegisterUser from './pages/Register/RegisterUser/RegisterUser.js';
 import RegisterMarket from './pages/Register/RegisterMarket/RegisterMarket.js';
@@ -32,6 +33,11 @@ function App() {
           <Route 
           path="/search" 
           element={<Search/>} 
+          />
+
+          <Route 
+          path="/productpage" 
+          element={<ProductPage/>} 
           />
           
           <Route 

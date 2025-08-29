@@ -1,9 +1,11 @@
 import styles from "./ButtonPrimary.module.css"
 
-export default function ButtonPrimary({name, event}){
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
+export default function ButtonPrimary({icon, name, event}){
     return(
         <button className={styles.buttonPrimary} onClick={event}>
-            {name}
+            {icon && <FontAwesomeIcon icon={icon}/>} {name}
         </button>
     );
 }

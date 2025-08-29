@@ -1,5 +1,5 @@
 import styles from './SearchBar.module.css'
-import {useState} from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 export default function SearchBar({label, type, placeholder}){
@@ -17,6 +17,7 @@ export default function SearchBar({label, type, placeholder}){
                 onKeyDown={(e) => {
                     if(e.key == 'Enter'){
                         navigate('/search', {state: {searchParameter: search}});
+                        navigate(0);
                     }
                 }}
             />

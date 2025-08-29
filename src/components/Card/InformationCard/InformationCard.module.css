@@ -1,0 +1,59 @@
+.card{
+    display: flex;
+    padding: 16px 16px 16px 16px;
+    width: 75%;
+    border-radius: 16px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.card img{
+    height: 150px;
+    object-fit: cover;
+}
+
+.cardGrid{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 12px;
+    gap: 24px;
+    width: 100%;
+    font-weight: 400;
+}
+
+.cardButtons{
+    display: flex;
+    width: 100%;
+    justify-content: right;
+    gap: 24px;
+    cursor: pointer;
+}
+
+.buttonEdit:hover{
+    border-radius: 6px 6px 6px 6px;
+    background-color: black;
+    color: white;
+}
+
+.buttonExclude:hover{
+    border-radius: 6px 6px 6px 6px;
+    background-color: black;
+    color: white;
+}
+
+.productInfo{
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    font-weight: 400;
+}
+
+@media screen and (max-width: 1170px){
+    .card{
+        flex-direction: column;
+    }
+
+    .productInfo{
+        flex-direction: column;
+    }
+}
