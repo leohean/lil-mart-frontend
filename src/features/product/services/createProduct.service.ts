@@ -1,11 +1,28 @@
-import axios, {AxiosPromise} from "axios";
-import api from './../../../services/axios';
-import {ProductSimple} from './../interfaces/ProductSimple.interface';
+import {AxiosPromise} from "axios";
+import api from '../../../api/axios';
+import {Product} from './../interfaces/Product.interface';
 
-export const createProduct = async(data: ProductSimple): AxiosPromise<any> =>{
-    return await api.post("/product", data, {
+
+export const createProduct = async(data: Product): AxiosPromise<any> =>{
+    const { image, ...productData } = data;
+    const response =  await api.post("/product", productData, {
     headers: {
       'Content-Type': 'application/json',
     }
   });
+
+  const productId = response.data.body.id;
+  
+  if (image) {
+    const formData = new FormData();
+    formData.append("image", image);
+
+    await api.post(`/product/${productId}/image`, formData, {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+      },
+    });
+  }
+
+  return response;
 }

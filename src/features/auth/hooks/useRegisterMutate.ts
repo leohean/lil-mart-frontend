@@ -1,28 +1,20 @@
-import axios from "axios";
-import {useMutation, useQueryClient} from '@tanstack/react-query';
+import {useMutation} from '@tanstack/react-query';
+import { useNavigate } from 'react-router-dom';
+
 import {register} from './../services/register.service';
 
 
 export function useRegisterMutate(){
-    const queryClient = useQueryClient();
+  const navigate = useNavigate();
+
     const mutate = useMutation({
       mutationFn: register,
+      onSuccess: () =>{
+        navigate('/login');
+      },
       onError: (error: any) => {
-      console.error("ERRO:", error);
-
-      if (axios.isAxiosError(error)) {
-        if (error.response) {
-          console.error("Status:", error.response.status);
-          console.error("Dados:", error.response.data);
-        } else if (error.request) {
-          console.error("Sem resposta da API. Request:", error.request);
-        } else {
-          console.error("Erro desconhecido:", error.message);
-        }
-      } else {
-        console.error("Erro genérico:", error);
+        console.error("ERROR: ", error);
       }
-    }
   });
 
   return mutate;

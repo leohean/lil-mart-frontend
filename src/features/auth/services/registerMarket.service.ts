@@ -1,6 +1,6 @@
-import axios, {AxiosPromise} from "axios";
-import api from './../../../services/axios';
-import {Market} from './../interfaces/Market.interface';
+import {AxiosPromise} from "axios";
+import api from '../../../api/axios';
+import {Market} from './../../market/interfaces/Market.interface';
 
 export const registerMarket = async(data: Market): AxiosPromise<any> => {
     return api.post("/auth/registermarket", data, {

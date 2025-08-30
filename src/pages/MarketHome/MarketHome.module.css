@@ -1,2 +1,55 @@
-.marketHome{
+.marketName{
+    font-size: 60px;
+    font-weight: 600;
+    margin-left: 13%;
+    padding-bottom: 24px;
+}
+
+.marketHomeGrid{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 72px;
+}
+
+.buttonNewProduct{
+    position: fixed;
+    right: 5%;
+    top: 90%;
+    z-index: 2;
+}
+
+.firsInputGroup{
+    display: flex;
+    gap: 24px;
+}
+
+.firsInputGroup .firstInput, .secondInput{
+    width: 50%;
+}
+
+.secondInputGroup{
+    display: flex;
+    gap: 24px;
+}
+
+.errorWarning{
+    margin-bottom: 24px;
+}
+
+@media screen and (max-width: 600px){
+    .firsInputGroup{
+        flex-direction: row;
+    }
+
+    .firsInputGroup{
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+    }
+
+    .firsInputGroup .firstInput, .secondInput{
+        width: 100%;
+    }
 }

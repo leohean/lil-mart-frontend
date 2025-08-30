@@ -5,7 +5,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser } from '@fortawesome/free-regular-svg-icons';
 import { faStore } from '@fortawesome/free-solid-svg-icons';
 
-
 import Form from './../../components/Form/Form'
 import Logo from './../../components/Logo/Logo';
 

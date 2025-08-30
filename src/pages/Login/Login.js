@@ -20,8 +20,9 @@ export default function Login(){
         setError("");
         if(email.trim()==='' && password.trim()===''){
             setError("É necessário informar o email e a senha");
+        }else{
+            mutate({email, password});
         }
-        mutate({email, password});
     };
 
     return(

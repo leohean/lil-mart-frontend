@@ -11,6 +11,7 @@ import ProductPage from './pages/ProductPage/ProductPage.js'
 import Register from './pages/Register/Register.js';
 import RegisterUser from './pages/Register/RegisterUser/RegisterUser.js';
 import RegisterMarket from './pages/Register/RegisterMarket/RegisterMarket.js';
+import ShoppingCart from './pages/ShoppingCart/ShoppingCart.js';
 import MarketHome from './pages/MarketHome/MarketHome.js';
 
 function App() {
@@ -56,7 +57,12 @@ function App() {
           />
 
           <Route 
-          path="/marketHome" 
+          path="/shoppingmarket" 
+          element={<ShoppingCart/>}
+          />
+
+          <Route 
+          path="/markethome" 
           element={
             <PrivateRoute>
               <MarketHome/>
