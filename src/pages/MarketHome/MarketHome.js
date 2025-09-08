@@ -103,7 +103,7 @@ export default function MarketHome(){
             <div className={styles.marketHomeGrid}>
                 {data?.map(productData =>
                 <InformationCard 
-                image ={productData.imageUrl}
+                image ={productData.image}
                 name = {productData.name}
                 description={productData.description}
                 category = {productData.category}

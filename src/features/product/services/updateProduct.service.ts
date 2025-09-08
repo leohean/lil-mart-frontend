@@ -8,6 +8,17 @@ export const updateProduct = async(data: any & {image?: File}) : AxiosPromise<an
         'Content-Type': 'application/json',
         }
     });
+  
+    if (image) {
+        const formData = new FormData();
+        formData.append("image", image);
+
+        await api.post(`/product/${id}/image`, formData, {
+        headers: {
+            'Content-Type': 'multipart/form-data',
+        },
+        });
+    }
 
     return response;
 }
