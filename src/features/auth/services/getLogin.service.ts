@@ -1,10 +1,9 @@
 import api from '../../../api/axios';
 
-import {LoginRequest} from './../interfaces/LoginRequest.interface';
 import {LoginResponse} from './../interfaces/LoginResponse.interface';
 
-export const login = async(data:LoginRequest): Promise<LoginResponse> => {
-    const response = await api.post<LoginResponse>("/auth/login", data);
+export const getLogin = async(): Promise<LoginResponse> => {
+    const response = await api.get<LoginResponse>("/auth/getlogin");
 
     const id = response.data.id;
     const role = response.data.role;

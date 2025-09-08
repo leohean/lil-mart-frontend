@@ -1,4 +1,4 @@
-import axios, {AxiosPromise} from "axios";
+import {AxiosPromise} from "axios";
 import api from '../../../api/axios';
 import {User} from './../../user/interfaces/User.interface';
 

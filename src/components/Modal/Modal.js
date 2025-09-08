@@ -1,5 +1,4 @@
 import styles from './Modal.module.css'
-import ButtonSecondary from './../../components/Button/ButtonSecondary/ButtonSecondary.js'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faX } from '@fortawesome/free-solid-svg-icons';

@@ -8,7 +8,6 @@ export function useLoginMutate(){
     return useMutation({
         mutationFn: login,
         onSuccess: (data) => {
-            localStorage.setItem('token', data.token);
                 
             if(data.role === "ROLE_USER") navigate("/");
             else if(data.role === "ROLE_MARKET") navigate("/markethome");    
@@ -17,7 +16,4 @@ export function useLoginMutate(){
             console.error("Error on useLoginMutate(): ", error);
         }
     });
-
-    
-
 }

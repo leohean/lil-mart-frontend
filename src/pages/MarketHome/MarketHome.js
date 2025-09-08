@@ -2,7 +2,6 @@ import {useState} from 'react';
 
 import styles from './MarketHome.module.css';
 
-import {decodeToken} from './../../features/auth/utils/decodeToken.ts'
 import {useGetProductsByMarket} from './../../features/market/hooks/useGetProductsByMarket.ts';
 import {useCreateProductMutate} from './../../features/product/hooks/useCreateProductMutate.ts';
 import {useUpdateProductMutate} from './../../features/product/hooks/useUpdateProductMutate.ts';
@@ -15,7 +14,6 @@ import ButtonPrimary from './../../components/Button/ButtonPrimary/ButtonPrimary
 import InformationCard from './../../components/Card/InformationCard/InformationCard.js';
 
 export default function MarketHome(){
-    const marketName = decodeToken(localStorage.getItem('token')).name;
 
     const [isModalOpen, setIsModalOpen] = useState(false); 
     const [actionModal, setActionModal] = useState("");

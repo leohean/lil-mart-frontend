@@ -3,11 +3,7 @@ import api from '../../../api/axios';
 
 export const updateProduct = async(data: any & {image?: File}) : AxiosPromise<any> => {
     const { id, image,...productData } = data;
-    const response = api.put(`/product/${id}`, productData,  {
-        headers: {
-        'Content-Type': 'application/json',
-        }
-    });
+    const response = api.put(`/product/${id}`, productData);
   
     if (image) {
         const formData = new FormData();
@@ -17,6 +13,7 @@ export const updateProduct = async(data: any & {image?: File}) : AxiosPromise<an
         headers: {
             'Content-Type': 'multipart/form-data',
         },
+        withCredentials: true
         });
     }
 

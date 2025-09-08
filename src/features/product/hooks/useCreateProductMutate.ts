@@ -8,7 +8,7 @@ export function useCreateProductMutate(product: Product){
       mutationFn: createProduct,
       onError: (error: any) => {
         console.error("Error on useCreateProductMutate: ", error);
-    }
+      }
   });
 
   return mutate;

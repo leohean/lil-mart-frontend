@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 export default function ButtonSecondary({icon, name, event}){
     return(
         <button className={styles.buttonSecondary} onClick={event}>
-            <FontAwesomeIcon icon={icon}/> {name}
+            {icon && <FontAwesomeIcon icon={icon}/>} {name}
         </button>
     );
 }
