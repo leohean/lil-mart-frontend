@@ -1,4 +1,3 @@
-import axios from "axios";
 import {useMutation} from '@tanstack/react-query';
 import {createProduct} from './../services/createProduct.service';
 import {Product} from './../interfaces/Product.interface';

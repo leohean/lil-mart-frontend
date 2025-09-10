@@ -1,8 +1,7 @@
+import { useState , useEffect} from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
+
 import styles from './ProductPage.module.css';
-
-import { useState } from 'react';
-import { useLocation } from 'react-router-dom';
-
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBasketShopping } from '@fortawesome/free-solid-svg-icons';
@@ -14,18 +13,52 @@ import ButtonPrimary from './../../components/Button/ButtonPrimary/ButtonPrimary
 import ButtonSecondary from './../../components/Button/ButtonSecondary/ButtonSecondary.js'
 import Footer from './../../components/Footer/Footer.js';
 
+import { useCreateShoppingCartItem } from './../../features/shoppingCart/hooks/useCreateShoppingCartItem.ts'
+import { getLogin } from './../../features/auth/services/getLogin.service.ts'
+
+
 export default function ProductPage(){
     const location = useLocation();
+    const navigate = useNavigate();
 
-    const image = location.state?.image ?? "";
+    const idProduct = location.state?.id ?? "";
     const name = location.state?.name ?? "";
     const description = location.state?.description ?? "";
     const price = location.state?.price ?? "";
     const unitMeasurement = location.state?.unitMeasurement ?? "";
     const category = location.state?.category ?? "";
     const stockQuantity = location.state?.stockQuantity ?? null;
+    const image = location.state?.image ?? "";
 
-    const [quantity, setQuantity] = useState(null);
+    const [productQuantity, setProductQuantity] = useState(null);
+    const [isLogged, setIsLogged] = useState(false);
+
+    const[idUser, setIdUser] = useState(null);
+    const[role, setRole] = useState("");
+    useEffect(() => {
+        const loginInfo = async () => {
+            try {
+                const login = await getLogin();
+                setIsLogged(true);
+                setIdUser(login.id);
+                setRole(login.role);
+            } catch (error) {
+                setIsLogged(false);
+                setIdUser(null);
+                setRole(null);
+            }
+        };
+        loginInfo();
+    });
+
+    const {mutate} = useCreateShoppingCartItem();
+    const submitShoppingCartitem = (e) =>{
+        e.preventDefault();
+        console.log("idUser ",idUser)
+        console.log("idProduct ",idProduct)
+
+        mutate({idUser, idProduct, productQuantity});
+    }
 
     return(
     <>
@@ -57,14 +90,14 @@ export default function ProductPage(){
                         label="Quantidade" 
                         type="text" 
                         placeholder="Quanto você deseja?" 
-                        value={quantity} 
-                        updateValue={setQuantity}/>
+                        value={productQuantity} 
+                        updateValue={setProductQuantity}/>
                     </div>
                 </div>
             </div>
             
-            <ButtonPrimary icon={faBasketShopping} name="Comprar"/>
-            <ButtonSecondary icon={faCartShopping} name="Adicionar ao carrinho"/>
+            <ButtonPrimary icon={faBasketShopping} name="Comprar" event={isLogged? null : ()=>{ navigate("/Login") } }/>
+            <ButtonSecondary icon={faCartShopping} name="Adicionar ao carrinho" event={isLogged? submitShoppingCartitem : ()=>{ navigate("/Login") } }/>
         </Form>
     </section>
     <Footer/>

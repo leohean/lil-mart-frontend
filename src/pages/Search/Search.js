@@ -14,6 +14,7 @@ export default function Search(){
             <div className={styles.searchGrid}>
                 {data?.map(productData => 
                 <Card 
+                    id = {productData.id}
                     image={productData.image}
                     name={productData.name}
                     category={productData.category}

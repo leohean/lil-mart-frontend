@@ -6,13 +6,14 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBasketShopping } from '@fortawesome/free-solid-svg-icons';
 
 
-export default function PurchaseCard({image, name, description, category, price, unitMeasurement, stockQuantity}){
+export default function PurchaseCard({id, image, name, description, category, price, unitMeasurement, stockQuantity}){
 
     const navigate = useNavigate();
 
     return(
         <div className={styles.card} 
             onClick = {() => navigate("/productpage", {state: {
+                                                        id: id,
                                                         image: image,
                                                         name: name,
                                                         description: description,
